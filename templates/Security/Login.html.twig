@@ -1,0 +1,45 @@
+{% extends 'Base.html.twig' %}
+{% block body %}
+<div class="main">
+    <div class="container">
+        {% for label, messages in app.flashes(['success', 'error', 'danger']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <h1>
+                {{ 'app.welcome'|trans }}, {{ user.Username }}
+            </h1>
+            <div id="box-logout" class="box">
+                <a href="{{ path('logout') }}">
+                    <button type="submit">{{ 'app.submit.logout'|trans }}</button>
+                </a>
+            </div>
+        {% else %}
+            <h1>
+                {{ 'app.welcome'|trans }}, {{ 'app.welcome_unknown'|trans }}
+            </h1>
+            {% if error %}
+                <div class="error">
+                    {{ error.messageKey }}
+                </div>
+            {% endif %}
+            <div id="box-login" class="box">
+                <form action="{{ path('login') }}" method="POST">
+                    <input type="text" name="_username" placeholder="{{ 'app.user.username'|trans }}">
+                    <input type="password" name="_password" placeholder="{{ 'app.user.password'|trans }}">
+                    <button type="submit">{{ 'app.submit.login'|trans }}</button>
+                </form>
+            </div>
+            <div id="desc">
+                <a href="{{ path('register') }}" id="switch-to-register">
+                    {{ 'app.button.register'|trans }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

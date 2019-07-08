@@ -1,0 +1,19 @@
+{% extends 'Base.html.twig' %}
+{% block body %}
+<div class="main">
+    <div class="container">
+        {% include 'Flashes/_top.html.twig' %}
+        <h1>
+            {{ 'app.welcome'|trans }}, {{ 'app.welcome_unknown'|trans }}
+        </h1>
+        <div id="box-register" class="box">
+            {{ form(form) }}
+        </div>
+        <div id="desc">
+            <a href="{{ path('login') }}">
+                {{ 'app.button.login'|trans }}
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

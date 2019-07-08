@@ -1,0 +1,21 @@
+app:
+  user:
+    username: 'Nazwa użytkownika'
+    password: 'Hasło'
+
+    register_success: 'Twoje konto zostało pomyślnie utworzone. (%username%)'
+
+  submit:
+    register: 'Zarejestruj się'
+    login: 'Zaloguj się'
+    logout: 'Wyloguj się'
+
+  error:
+    username_taken: 'Nazwa użytkownika jest już w użyciu.'
+
+  welcome: 'Witaj'
+  welcome_unknown: 'nieznajomy'
+
+  button:
+    register: 'Nie masz jeszcze konta? Zarejestruj się!'
+    login: 'Masz już konto? Zaloguj się!'
